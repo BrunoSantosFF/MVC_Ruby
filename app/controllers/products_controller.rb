@@ -8,6 +8,10 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def new
+    @product = Product.new
+  end
+
   private
 
   def set_product
