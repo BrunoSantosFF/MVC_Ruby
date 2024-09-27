@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to products_url, notice: 'Produto criado com sucesso.'
+      redirect_to products_url(@product), notice: 'Produto criado com sucesso.'
     else 
       render :new, status: :unprocessable_entity
     end
