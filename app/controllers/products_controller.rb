@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: [:show, :edit]
 
   def index
     @products = Product.all
@@ -15,10 +15,19 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      Rails.logger.info "Produto criado com sucesso: #{@product.inspect}"
       redirect_to products_url, notice: 'Produto criado com sucesso.'
     else 
-      Rails.logger.warn "Falha ao criar produto: #{@product.errors.full_messages.join(', ')}"
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit 
+  end 
+
+  def update
+    if @product.update(product_params)
+      redirect_to products_url, notice: 'Produto criado com sucesso.'
+    else 
       render :new, status: :unprocessable_entity
     end
   end
