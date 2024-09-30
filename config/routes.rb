@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # post 'products', to: "products#create"
   # get 'products/:id', to: "products#show"
   # get "up" => "rails/health#show", as: :rails_health_check
-
+  #root "products#index"
   resources :products
 
   

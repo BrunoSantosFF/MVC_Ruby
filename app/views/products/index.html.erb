@@ -7,4 +7,7 @@
 <p> <%= product.price %></p>
 
 <%= link_to 'ver_produto', product %>
+<%= link_to 'Delete', product,
+  data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+
 <% end %>
